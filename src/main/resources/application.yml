@@ -1,0 +1,15 @@
+spring:
+  r2dbc:
+    url: jdbc:postgresql://localhost:5432/kafka
+    username: admin
+    password: 12345
+  flyway:
+    url: jdbc:postgresql://localhost:5432/kafka
+      username: admin
+      password: 12345
+      locations:
+
+
+
+server:
+  port: 8066
