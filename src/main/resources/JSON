@@ -1,0 +1,8 @@
+{
+  "id": "abcd1234",
+  "subject": "Example Subject",
+  "text": "This is an example message.",
+  "recipientUID": "xyz9876",
+  "recipient": null
+
+}

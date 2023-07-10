@@ -1,9 +1,6 @@
 package net.proselyte.aws.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.Persistable;
@@ -11,33 +8,27 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder(toBuilder = true)
-@Table("notifications")
-public class NotificationEntity implements Persistable<String> {
-
+@Table("recipients")
+public class RecipientEntity implements Persistable<String> {
 
     @Id
     private String id;
-    @Column("subject")
-    private String subject;
-    @Column("text")
-    private String text;
-    @Column("recipientUID")
-    private String recipientUID;
+    @Column("channel")
+    private String channel;
+    @Column("address")
+    private String address;
+    @Column("fullName")
+    private String fullName;
+
     @Transient
-    private RecipientEntity recipient;
-
-
-
-
-    @Override
-    public String getId() {
-        return null;
-    }
+    @ToString.Exclude
+    private List<NotificationEntity> notifications;
 
     @Override
     public boolean isNew() {
