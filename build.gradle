@@ -3,6 +3,14 @@ plugins {
 	id 'org.springframework.boot' version "$springBootVersion"
 	id 'io.spring.dependency-management' version "$springDependencyManagement"
 }
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+tasks.withType(Test) {
+	jvmArgs '-Dfile.encoding=UTF-8'
+}
+
+
 
 group = 'net.proselyte'
 version = '1.0.0'
@@ -22,8 +30,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql
 	implementation group: 'org.postgresql', name: 'r2dbc-postgresql', version: '1.0.1.RELEASE'
 
-	// https://mvnrepository.com/artifact/org.flywaydb/flyway-core
-	implementation 'org.flywaydb:flyway-core:9.20.0'
+//	// https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+//	implementation 'org.flywaydb:flyway-core:9.19.4'
 
 	implementation "org.postgresql:postgresql:$postgresVersion"
 	implementation "io.github.cdimascio:java-dotenv:$cdimascioVersion"

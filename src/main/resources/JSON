@@ -1,8 +1,20 @@
 {
-  "id": "abcd1234",
-  "subject": "Example Subject",
-  "text": "This is an example message.",
-  "recipientUID": "xyz9876",
-  "recipient": null
-
+  "id": "123",
+  "channel": "email",
+  "address": "john.doe@example.com",
+  "full_name": "John Doe",
+  "notifications": [
+    {
+      "id": "456",
+      "subject": "Notification subject 1",
+      "text": "Notification text 1",
+      "recipient_uid": "789"
+       },
+    {
+      "id": "789",
+      "subject": "Notification subject 2",
+      "text": "Notification text 2",
+      "recipient_uid": "789"
+    }
+  ]
 }

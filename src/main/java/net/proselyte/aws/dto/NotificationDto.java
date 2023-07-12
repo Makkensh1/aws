@@ -6,5 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record NotificationDto(String id, String subject, String text, String recipientUID, RecipientDto recipient) {
+public record NotificationDto(String id, String subject, String text, String recipientUID) {
+
 }

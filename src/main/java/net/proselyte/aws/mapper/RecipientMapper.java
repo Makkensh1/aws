@@ -8,8 +8,8 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface RecipientMapper {
 
-    RecipientDto map(RecipientEntity entity);
+    RecipientDto toRecipientDto(RecipientEntity entity);
 
     @InheritInverseConfiguration
-    RecipientEntity map(RecipientDto dto);
+    RecipientEntity toRecipient(RecipientDto dto);
 }

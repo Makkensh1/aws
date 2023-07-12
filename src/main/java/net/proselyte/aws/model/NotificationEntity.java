@@ -27,7 +27,7 @@ public class NotificationEntity implements Persistable<String> {
     @Column("text")
     private String text;
     @Column("recipientUID")
-    private String recipientUID;
+    private String recipientUid;
     @Transient
     private RecipientEntity recipient;
 

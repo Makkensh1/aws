@@ -1,5 +1,7 @@
 package net.proselyte.aws.kafka.topic;
 
+import net.proselyte.aws.dto.RecipientDto;
+import net.proselyte.aws.model.RecipientEntity;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,16 +15,20 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic NotificationTopic() {
+
+
+
         return TopicBuilder.name(NOTIFICATION_TOPIC)
-                .partitions(5)
+                .partitions(1)
                 .replicas(1)
                 .build();
+
     }
 
     @Bean
     public NewTopic recipientTopic(){
         return  TopicBuilder.name(RECIPIENT_TOPIC)
-                .partitions(5)
+                .partitions(1)
                 .replicas(1)
                 .build();
     }

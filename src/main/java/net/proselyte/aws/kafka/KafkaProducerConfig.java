@@ -26,8 +26,6 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        props.put(JsonSerializer.TYPE_MAPPINGS,
-                "RecipientDto:net.proselyte.aws.dto.RecipientDto, NotificationDto:net.proselyte.aws.dto.net.proselyte.aws.dto.NotificationDto");
         return new DefaultKafkaProducerFactory<>(props);
     }
 
@@ -35,4 +33,5 @@ public class KafkaProducerConfig {
     public KafkaTemplate<String, Object> kafkaTemplate() {
         return new KafkaTemplate<>(producerConfig());
     }
+
 }

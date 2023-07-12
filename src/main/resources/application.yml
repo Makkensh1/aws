@@ -1,29 +1,42 @@
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:29092
     producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring:
-          json:
-            add:
-              type:
-                headers: false
+        spring.json.type.mapping:
+          recipientDto: net.proselyte.aws.dto.RecipientDto
+          notificationDto: net.proselyte.aws.dto.net.proselyte.aws.dto.NotificationDto
       acks: 1
+      jackson:
+        add:
+          type:
+            headers: false
+
     consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      group-id: aws
       properties:
         spring.json.trusted.packages: "*"
+    listener:
+      listener-1:
+        group-id: recipient-1
+        topics: recipient
+      listener-2:
+        group-id: notification-1
+        topics: notification
   r2dbc:
     url: r2dbc:pool:postgres://localhost:5432/kafka
     username: admin
     password: 12345
   flyway:
     url: jdbc:postgresql://localhost:5432/kafka
-      username: admin
-      password: 12345
-      locations: classpath:db/migration
+    username: admin
+    password: 12345
+    locations: classpath:db/migration/
+    baselineOnMigrate: true
+    validateOnMigrate: false
 
 server:
   port: 8066
